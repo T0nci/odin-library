@@ -26,7 +26,7 @@ function Book(title = "/", author = "/", pages = "0", read = false) {
 
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
-    myLibrary.unshift(book);
+    myLibrary.unshift(book); /* Using unshift to show older books last */
 }
 
 

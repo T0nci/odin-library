@@ -64,6 +64,10 @@ meter {
 }
 /* End Meyer reset */
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --blue: #1992D4;
     --light-gray: #E2E8F0;
@@ -75,7 +79,7 @@ body {
 }
 
 .container {
-    max-width: 1700px;
+    max-width: 1800px;
     min-height: 100vh;
     margin: 0 auto;
 }
@@ -91,7 +95,7 @@ body {
 }
 
 .container .books {
-    max-width: 1400px;
+    max-width: 1312px;
     margin: 0 auto;
     padding: 2rem;
 
@@ -101,7 +105,6 @@ body {
 }
 
 .books .book {
-    box-sizing: border-box;
     background-color: #FFFFFF;
     border-radius: 10px;
     border-left: 10px solid var(--blue, skyblue);

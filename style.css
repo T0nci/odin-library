@@ -168,7 +168,8 @@ dialog .dialog {
     margin-bottom: 0.25rem;
 }
 
-.dialog p input {
+.dialog p input[type='text'],
+.dialog p input[type='number'] {
     outline: none;
     border-radius: 5px;
     border: 2px solid var(--light-gray, lightgray);
@@ -184,6 +185,8 @@ dialog .dialog {
 .dialog label[for='read'] {
     display: inline;
     width: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .dialog p:nth-of-type(4) {
@@ -191,10 +194,6 @@ dialog .dialog {
     justify-content: start;
     align-items: center;
     gap: 0.5rem;
-}
-
-.dialog input[type='checkbox'] {
-    width: 20px;
 }
 
 .dialog p button[type='submit'] {

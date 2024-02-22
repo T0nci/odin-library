@@ -1,3 +1,12 @@
+Book.prototype.info = function() {
+    if (this.read) {
+        return `${this.title} by ${this.author}, ${this.pages} pages, read`;
+    } else {
+        return `${this.title} by ${this.author}, ${this.pages} pages, not read`;
+    }
+}
+
+
 const booksDiv = document.querySelector(".books");
 
 const newBookButton = document.querySelector(".add-book");
@@ -47,14 +56,6 @@ function Book(title = "/", author = "/", pages = "0", read = false) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-
-    this.info = function() {
-        if (this.read) {
-            return `${this.title} by ${this.author}, ${this.pages} pages, read`;
-        } else {
-            return `${this.title} by ${this.author}, ${this.pages} pages, not read`;
-        }
-    }
 }
 
 

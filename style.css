@@ -89,9 +89,128 @@ body {
 }
 
 .header .logo {
-    text-align: center;
     font-size: 5rem;
     font-weight: bolder;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header .add-book {
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: var(--blue, blue);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: auto;
+    height: 3rem;
+    display: block;
+    margin: 0 auto;
+}
+
+dialog {
+    padding: 2rem;
+    border-radius: 10px;
+    border: 5px solid var(--blue, blue);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog .dialog {
+    display: grid;
+    grid-template-columns: 1fr 25px;
+    gap: 1rem;
+}
+
+.dialog .heading {
+    font-size: 1.75rem;
+    font-weight: bold;
+
+    place-self: center;
+}
+
+.close-btn img {
+    width: 25px;
+    height: 25px;
+}
+
+.dialog .close-btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+
+    place-self: center;
+}
+
+.dialog .close-btn:hover {
+    background-color: var(--light-gray, lightgray);
+}
+
+.dialog form {
+    grid-column: 1 / 3;
+}
+
+.dialog form p {
+    margin-top: 1rem;
+}
+
+.dialog p label {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.dialog p input {
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid var(--light-gray, lightgray);
+    height: 2rem;
+    padding: 0.125rem 0.25rem;
+}
+
+.dialog p input:focus {
+    border: 2px solid blue;
+}
+
+.dialog input[type='checkbox'],
+.dialog label[for='read'] {
+    display: inline;
+    width: auto;
+}
+
+.dialog p:nth-of-type(4) {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dialog input[type='checkbox'] {
+    width: 20px;
+}
+
+.dialog p button[type='submit'] {
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: var(--blue, blue);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: auto;
+    height: 3rem;
+    display: block;
+    margin: 0 auto;
 }
 
 .container .books {
@@ -107,7 +226,7 @@ body {
 .books .book {
     background-color: #FFFFFF;
     border-radius: 10px;
-    border-left: 10px solid var(--blue, skyblue);
+    border-left: 10px solid var(--blue, blue);
     box-shadow: 5px 5px 5px -5px rgb(0, 0, 0, 0.1);
     padding: 1rem;
 
@@ -118,7 +237,7 @@ body {
 
 .book .title {
     font-size: 1.75rem;
-    font-weight: bolder;
+    font-weight: bold;
     text-align: center;
 
     grid-column: 1 / 3;
@@ -126,21 +245,21 @@ body {
 
 .book .author {
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 500;
+    text-align: center;
     
     grid-column: 1 / 3;
 }
 
 .book .pages {
     font-size: 1.25rem;
-    font-weight: bold;
-
-    grid-column: 1 / 3;
+    font-weight: 500;
+    text-align: center;
 }
 
 .book .status {
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -150,11 +269,15 @@ body {
 
 .book .remove button {
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #FFFFFF;
-    background-color: var(--blue, skyblue);
+    background-color: var(--blue, blue);
     font-size: 1.25rem;
     font-weight: bold;
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    width: auto;
+    height: 3rem;
+    display: block;
+    margin: 0 auto;
 }

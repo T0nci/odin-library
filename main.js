@@ -1,11 +1,45 @@
-const books = document.querySelector(".books");
+const booksDiv = document.querySelector(".books");
+
+const newBookButton = document.querySelector(".add-book");
+const dialog = document.querySelector(".header dialog");
+const closeDialogButton = document.querySelector("dialog .close-btn");
+
+const dialogForm = document.querySelector("dialog form");
+const titleField = document.querySelector("#title");
+const authorField = document.querySelector("#author");
+const pagesField = document.querySelector("#pages");
+const readField = document.querySelector("#read");
+
 const myLibrary = [];
 
 for (let i = 0; i < 4; i++) {
-    addBookToLibrary("example", "example", "1", true);
+    addBookToLibrary("example", "example", "" + i, true);
 }
 
 showBooksOnPage();
+
+newBookButton.addEventListener("click", (event) => {
+    dialog.showModal();
+});
+
+closeDialogButton.addEventListener("click", (event) => {
+    dialog.close();
+});
+
+dialogForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    addBookToLibrary(
+        titleField.value,
+        authorField.value,
+        pagesField.value,
+        readField.checked
+    );
+    showBooksOnPage();
+
+    dialog.close();
+    dialogForm.reset();
+});
 
 
 function Book(title = "/", author = "/", pages = "0", read = false) {
@@ -31,6 +65,8 @@ function addBookToLibrary(title, author, pages, read) {
 
 
 function showBooksOnPage() {
+    booksDiv.textContent = ''; /* Ensure the booksDiv is empty */
+
     for (const book of myLibrary) {
         const title = document.createElement("div");
         title.classList.add("title");
@@ -56,6 +92,6 @@ function showBooksOnPage() {
         card.appendChild(pages);
         card.appendChild(status);
 
-        books.appendChild(card);
+        booksDiv.appendChild(card);
     }
 }

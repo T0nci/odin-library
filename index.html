@@ -15,6 +15,36 @@
     <div class="container">
         <div class="header">
             <div class="logo">Library</div>
+            <button class="add-book">New book +</button>
+            <dialog>
+                <div class="dialog">
+                    <div class="heading">New book</div>
+                    <button class="close-btn">
+                        <img src="images/close.svg" alt="close icon">
+                    </button>
+                    <form>
+                        <p>
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title" autocomplete="off" autofocus required>
+                        </p>
+                        <p>
+                            <label for="author">Author:</label>
+                            <input type="text" id="author" name="author" autocomplete="off" required>
+                        </p>
+                        <p>
+                            <label for="pages">Pages:</label>
+                            <input type="number" id="pages" name="pages" autocomplete="off" required>
+                        </p>
+                        <p>
+                            <label for="read">Read status</label>
+                            <input type="checkbox" id="read" name="read" value="read">
+                        </p>
+                        <p>
+                            <button type="submit">Add book</button>
+                        </p>
+                    </form>
+                </div>
+            </dialog>
         </div>
         <div class="books">
 

@@ -86,13 +86,35 @@ function showBooksOnPage() {
         if (book.read) status.textContent = "Read";
         else status.textContent = "Not read";
 
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove");
+        removeButton.textContent = "Remove";
+
+        enableDeletion(
+            removeButton, myLibrary.findIndex((val) => val === book)
+        );
+            
         const card = document.createElement("div");
         card.classList.add("book");
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(status);
+        card.appendChild(removeButton);
 
         booksDiv.appendChild(card);
     }
+}
+
+
+function enableDeletion(btn, id) {
+    btn.dataset.id = id;
+
+    btn.addEventListener("click", (e) => {
+        id = e.currentTarget.dataset.id;
+
+        myLibrary.splice(id, 1);
+
+        showBooksOnPage();
+    });
 }

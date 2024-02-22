@@ -262,11 +262,7 @@ dialog .dialog {
     text-align: center;
 }
 
-.book .remove {
-    text-align: center;
-}
-
-.book .remove button {
+.book button.remove {
     border: none;
     border-radius: 10px;
     color: #FFFFFF;
@@ -279,4 +275,6 @@ dialog .dialog {
     height: 3rem;
     display: block;
     margin: 0 auto;
+
+    grid-column: 1 / 3;
 }

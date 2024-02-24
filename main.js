@@ -84,15 +84,21 @@ function showBooksOnPage() {
         const status = document.createElement("div");
         status.classList.add("status");
         if (book.read) status.textContent = "Read";
-        else status.textContent = "Not read";
+        else status.textContent = "Not Read";
+
+        const id = myLibrary.findIndex((val) => val === book);
+
+        const changeStatusButton = document.createElement("button");
+        changeStatusButton.classList.add("change-status");
+        changeStatusButton.textContent = "Read Status";
+
+        enableStatusChange(changeStatusButton, id);
 
         const removeButton = document.createElement("button");
         removeButton.classList.add("remove");
         removeButton.textContent = "Remove";
 
-        enableDeletion(
-            removeButton, myLibrary.findIndex((val) => val === book)
-        );
+        enableDeletion(removeButton, id);
             
         const card = document.createElement("div");
         card.classList.add("book");
@@ -100,6 +106,7 @@ function showBooksOnPage() {
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(status);
+        card.appendChild(changeStatusButton);
         card.appendChild(removeButton);
 
         booksDiv.appendChild(card);
@@ -111,9 +118,27 @@ function enableDeletion(btn, id) {
     btn.dataset.id = id;
 
     btn.addEventListener("click", (e) => {
-        id = e.currentTarget.dataset.id;
+        const id = e.currentTarget.dataset.id;
 
         myLibrary.splice(id, 1);
+
+        showBooksOnPage();
+    });
+}
+
+
+function enableStatusChange(btn, id) {
+    btn.dataset.id = id;
+
+    btn.addEventListener("click", (e) => {
+        const id = e.currentTarget.dataset.id;
+        const book = myLibrary[id];
+
+        if (book.read) {
+            book.read = false;
+        } else {
+            book.read = true;
+        }
 
         showBooksOnPage();
     });

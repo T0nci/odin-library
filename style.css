@@ -172,13 +172,13 @@ dialog .dialog {
 .dialog p input[type='number'] {
     outline: none;
     border-radius: 5px;
-    border: 2px solid var(--light-gray, lightgray);
+    border: 1px solid var(--light-gray, lightgray);
     height: 2rem;
     padding: 0.125rem 0.25rem;
 }
 
 .dialog p input:focus {
-    border: 2px solid blue;
+    border: 1px solid blue;
 }
 
 .dialog input[type='checkbox'],

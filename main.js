@@ -32,7 +32,7 @@ const readField = document.querySelector("#read");
 const myLibrary = [];
 
 for (let i = 0; i < 4; i++) {
-    addBookToLibrary("example", "example", "" + i, true);
+    addBookToLibrary("example", "example", `${i + 1}`, true);
 }
 
 showBooksOnPage();
@@ -48,6 +48,11 @@ closeDialogButton.addEventListener("click", (event) => {
 dialogForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
+    checkTitle();
+    checkAuthor();
+    checkPages();
+    if (!dialogForm.reportValidity()) return; 
+
     addBookToLibrary(
         titleField.value,
         authorField.value,
@@ -59,6 +64,39 @@ dialogForm.addEventListener('submit', (event) => {
     dialog.close();
     dialogForm.reset();
 });
+
+titleField.addEventListener('input', checkTitle);
+authorField.addEventListener('input', checkAuthor);
+pagesField.addEventListener('input', checkPages);
+
+
+function checkTitle() {
+    if (titleField.validity.valueMissing) {
+        titleField.setCustomValidity('The title is required!');
+    } else {
+        titleField.setCustomValidity('');
+    }
+}
+
+
+function checkAuthor() {
+    if (authorField.validity.valueMissing) {
+        authorField.setCustomValidity('The author is required!');
+    } else {
+        authorField.setCustomValidity('');
+    }
+}
+
+
+function checkPages() {
+    if (pagesField.validity.valueMissing) {
+        pagesField.setCustomValidity('The number of pages is required');
+    } else if (pagesField.validity.rangeUnderflow) {
+        pagesField.setCustomValidity('The minimum number of pages is 1!');
+    } else {
+        pagesField.setCustomValidity('');
+    }
+}
 
 
 function addBookToLibrary(title, author, pages, read) {

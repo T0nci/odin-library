@@ -17,7 +17,7 @@
                     <button class="close-btn">
                         <img src="images/close.svg" alt="close icon">
                     </button>
-                    <form>
+                    <form novalidate>
                         <p>
                             <label for="title">Title:</label>
                             <input type="text" id="title" name="title" autocomplete="off" autofocus required>
@@ -28,7 +28,7 @@
                         </p>
                         <p>
                             <label for="pages">Pages:</label>
-                            <input type="number" id="pages" name="pages" autocomplete="off" required>
+                            <input type="number" id="pages" name="pages" autocomplete="off" required min="1">
                         </p>
                         <p>
                             <label for="read">Read status</label>
